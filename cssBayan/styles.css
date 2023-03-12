@@ -178,9 +178,7 @@ html {
         margin: 1rem 1rem;
         border-radius: 1rem;
     }
- }
 
- @media (hover: hover) {
     .accordion-img:hover {
         transform: scale(1.1);
         transition: all 1.5s ease;
