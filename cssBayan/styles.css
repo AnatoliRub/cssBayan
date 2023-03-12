@@ -54,7 +54,7 @@ body {
 .accordion__title {
     display: flex;
     flex-direction: column;
-    color: white;
+    color: navy;
     background: linear-gradient(45deg, #08e02c, #FF3706);
     font-size: 1.5rem;
     cursor: pointer;
@@ -74,6 +74,11 @@ body {
     border-radius: 1rem;
 }
 
+.accordion-img:hover {
+    transform: scale(1.1);
+    transition: all 1.5s ease;
+}
+
 .accordion__action {
     display: none;
 }
@@ -81,20 +86,19 @@ body {
 .accordion__content {
     display: flex;
     height: 0;
+    width: 0;
     overflow: hidden;
     justify-content: center;
-    transition: all .5s ease-out;
+    /* transition: all .5s ease-out; */
+    transition: width 2s, height 2s;
     background: url(./assets/images/png/noise_transparent@2x.png), linear-gradient(3deg, #e6d16c, #16014c);
-    transition: all .5s ease-out;
 }
 
 
 .accordion__action:not(:checked) + .accordion__title {
-    color: navy;
+    color: white;
     transition: all .5s ease-out;
 }
-
-
 
 .accordion .accordion__close {
     opacity: 0;
@@ -112,6 +116,11 @@ body {
     opacity: 1;
 }
 
+
+.accordion__close:hover {
+    transform: rotate(360deg);
+    transition: all 2s ease-in-out;
+}
 
 .accordion__action + .accordion__title .accordion__close {
     display: none;
@@ -138,18 +147,19 @@ body {
 }
 
 .accordion:hover .accordion__action ~ .accordion__title {
-    color: white;
+    color: navy;
 }
 
 
 .accordion__item:hover .accordion__content {
     height: 100%;
-    animation: fade-in 500ms backwards;
+    width: 100%;
 }
 
 .accordion__action:checked ~ .accordion__title .accordion__content {
     display: flex;
     height: 100%;
+    width: 100%;
 }
 
 .accordion__title .accordion__content {
@@ -162,7 +172,7 @@ body {
 }
 
 .accordion__item:active .accordion__title-controls {
-    color: #4806ff;
+    color: #06daff;
 }
 
 
@@ -184,6 +194,10 @@ body {
     .title {
         font-size: 1.5rem;
     }
+
+    .accordion__title {
+        font-size: 1rem;
+    }
  }
 
  @media (max-width: 51.25rem) { 
@@ -193,6 +207,10 @@ body {
 
     .title {
         font-size: 1rem;
+    }
+
+    .accordion__title {
+        font-size: .8rem;
     }
  }
 
