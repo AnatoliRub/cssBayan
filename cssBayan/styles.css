@@ -1,0 +1,221 @@
+@font-face {
+    font-family: Lobster;
+    font-style: normal;
+    src: url(./assets/fonts/LobsterTwo-Regular.ttf);
+}
+
+* {
+    margin: 0rem;
+    padding: 0rem;
+    box-sizing: border-box;
+    font-family: Lobster;
+}
+
+::-webkit-scrollbar { 
+    width: 0rem;
+    background: transparent;
+}
+
+html {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+@media (min-width: 20rem) {
+
+    body {
+        background-color: black;
+    }
+
+    .title {
+        text-align: center;
+        margin: 0rem auto 2rem;
+        font-size: .8rem;
+        color: aqua;
+    }
+
+    .accordion {
+        max-width: 80vw;
+        width: 100%;
+        margin: 0rem auto 2rem;
+    }
+
+    .accordion .accordion__item:first-child {
+        overflow: hidden;
+        border-top-right-radius: 1.5rem;
+        border-top-left-radius: 1.5rem;
+    }
+
+    .accordion .accordion__item:last-child {
+        overflow: hidden;
+        border-bottom-right-radius: 1.5rem;
+        border-bottom-left-radius: 1.5rem;
+    }
+
+    .accordion__title {
+        display: flex;
+        flex-direction: column;
+        color: navy;
+        background: linear-gradient(45deg, #08e02c, #FF3706);
+        font-size: .8rem;
+    }
+    
+    .accordion__title-controls {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 1rem;
+        user-select: none;
+    }
+    
+    .accordion-img {
+        object-fit: cover;
+        width: 40%;
+        margin: 1rem 1rem;
+        border-radius: 1rem;
+    }
+
+    .accordion__action {
+        display: none;
+    }
+    
+    .accordion__content {
+        display: flex;
+        height: 0rem;
+        width: 0rem;
+        overflow: hidden;
+        justify-content: center;
+        transition: width 2s, height 2s;
+        background: url(./assets/images/png/noise_transparent@2x.png), linear-gradient(3deg, #e6d16c, #16014c);
+    }
+
+    .accordion__action:not(:checked) + .accordion__title {
+        color: white;
+        transition: all .5s ease-out;
+    }
+    
+    .accordion .accordion__close {
+        opacity: 0;
+    }
+
+    .accordion .accordion__open {
+        opacity: 0;
+    }
+
+    .accordion__action + .accordion__title .accordion__close {
+        display: none;
+    }
+    
+    .accordion__action:checked + .accordion__title .accordion__close {
+        display: flex;
+    }
+    
+    .accordion__action + .accordion__title .accordion__open {
+        display: flex;
+    }
+    
+    .accordion__action:checked + .accordion__title .accordion__open {
+        display: none;
+    }
+
+    .accordion__action:checked ~ .accordion__title .accordion__content {
+        display: flex;
+        height: 100%;
+        width: 100%;
+    }
+    
+    .accordion__title .accordion__content {
+        height: 0rem;
+        transition: all .5s ease-out;
+    }
+    
+    .accordion__action:checked ~ .accordion__title .accordion__content {
+        animation: none;
+    }
+    
+    .accordion__item:active .accordion__title-controls {
+        color: #06daff;
+    }
+} 
+
+@media (min-width: 35.5rem) { 
+    body {
+        background-color: #7e702b;
+    }
+
+    .title {
+        font-size: 1.2rem;
+    }
+
+    .accordion__title {
+        font-size: 1.2rem;
+    }
+
+    .accordion-img {
+        object-fit: cover;
+        width: 30%;
+        margin: 1rem 1rem;
+        border-radius: 1rem;
+    }
+ }
+
+ @media (min-width: 73.75rem) { 
+    body {
+        background-color: #e6d16c;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .accordion__title {
+        font-size: 2rem;
+        cursor: pointer;
+    }
+
+    .accordion-img {
+        object-fit: cover;
+        width: 20%;
+        margin: 1rem 1rem;
+        border-radius: 1rem;
+    }
+
+    .accordion-img:hover {
+        transform: scale(1.1);
+        transition: all 1.5s ease;
+    }
+
+    .accordion:hover .accordion__close {
+        opacity: 1;
+    }
+
+    .accordion:hover .accordion__open {
+        opacity: 1;
+    }
+
+    .accordion__close:hover {
+        transform: rotate(360deg);
+        transition: all 2s ease-in-out;
+    }
+
+    .accordion__title-description:hover {
+        transform: skewX(25deg);
+        transition: all 2s ease-in-out;
+    }
+
+    .accordion__item:hover .accordion__open {
+        display: none;
+    }
+
+    .accordion__item:hover .accordion__close {
+        display: block;
+    }
+
+    .accordion:hover .accordion__action ~ .accordion__title {
+        color: navy;
+    }
+
+    .accordion__item:hover .accordion__content {
+        height: 100%;
+        width: 100%;
+    }
+ }
